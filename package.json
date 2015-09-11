@@ -1,0 +1,42 @@
+{
+  "name": "mob-grunt-strap",
+  "description": "Grunt bootstrap with live-relaoad",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": "0.12.0",
+    "npm": "2.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Digital-Mob/grunt-strap.git"
+  },
+  "homepage": "https://github.com/Digital-Mob/grunt-strap",
+  "bugs": {
+    "url": "https://github.com/Digital-Mob/grunt-strap/issues"
+  },
+  "authors": [
+    {
+      "name": "Marian Oancea",
+      "email": "marian@digitalmob.ro",
+      "url": "https://digitalmob.ro"
+    }
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^3.0.3",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-cssmin": "^0.12.3",
+    "grunt-contrib-jade": "^0.14.1",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-express": "^1.4.1",
+    "grunt-open": "^0.2.3",
+    "load-grunt-tasks": "^3.2.0"
+  }
+}
