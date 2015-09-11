@@ -12,7 +12,7 @@ Grunt tasks for building development and production with live-reload.
 
 ## Install grunt
 ```bash
-npm install -g grunt
+npm install -g grunt-cli
 ```
 
 ## Install less
