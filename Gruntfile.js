@@ -8,10 +8,15 @@ module.exports = function(grunt) {
 	var SRC_DIR_JS = SRC_DIR + 'js/';
 	var SRC_DIR_LESS = SRC_DIR + 'less/';
 	var SRC_DIR_JADE = SRC_DIR + 'views/';
+	var SRC_DIR_IMAGES = SRC_DIR + 'images/';
+	var SRC_DIR_FONTS = SRC_DIR + 'fonts/';
 	var SRC_FILES_JS = SRC_DIR_JS + '*.js';
 	var SRC_FILE_LESS = SRC_DIR_LESS + 'style.less';
 	var SRC_FILES_LESS = SRC_DIR_LESS + '*.less';
 	var SRC_FILES_JADE = SRC_DIR_JADE + '*.jade';
+	var WATCH_FILES_JADE = SRC_DIR_JADE + '**/*.jade';
+	var SRC_FILES_IMAGES = SRC_DIR_IMAGES + '**';
+	var SRC_FILES_FONTS = SRC_DIR_FONTS + '**';
 
 	// bower dependencies
 	var SRC_BOWER_DIR = 'bower_components/';
@@ -27,6 +32,7 @@ module.exports = function(grunt) {
 	var BUILD_DIR = 'dist/';
 	var BUILD_DIR_JS = BUILD_DIR + 'js/';
 	var BUILD_DIR_CSS = BUILD_DIR + 'css/';
+	var BUILD_DIR_IMAGES = BUILD_DIR + 'images/';
 	var BUILD_DIR_FONTS = BUILD_DIR + 'fonts/';
 	var BUILD_FILE_JS = BUILD_DIR_JS + 'app.js';
 	var BUILD_FILE_CSS = BUILD_DIR_CSS + 'style.css';
@@ -64,6 +70,12 @@ module.exports = function(grunt) {
 		clean: {
 			build: {
 				src: [BUILD_DIR]
+			},
+			images: {
+				src: [BUILD_DIR_IMAGES]
+			},
+			fonts: {
+				src: [BUILD_DIR_FONTS]
 			},
 			scripts: {
 				src: [BUILD_DIR_JS + '*.js', ['!' + BUILD_FILE_JS, '!' + SRC_BOOTSTRAP_JS_FILE, '!' + SRC_JQUERY_JS_FILE]]
@@ -199,6 +211,18 @@ module.exports = function(grunt) {
 		// configure grunt-watch to monitor the projects files
 		// and perform each specific file type build task.
 		watch: {
+			images: {
+				options: { livereload: false },
+				files: [SRC_FILES_IMAGES],
+				tasks: ['clan:images', 'copy']
+			},
+
+			fonts: {
+				options: { livereload: false },
+				files: [SRC_FILES_FONTS],
+				tasks: ['clan:fonts', 'copy']
+			},
+
 			scripts: {
 				options: { livereload: false },
 				files: [SRC_FILES_JS],
@@ -213,7 +237,7 @@ module.exports = function(grunt) {
 
 			jade: {
 				options: { livereload: false },
-				files: [SRC_FILES_JADE],
+				files: [WATCH_FILES_JADE],
 				tasks: ['jade']
 			}
 		},
