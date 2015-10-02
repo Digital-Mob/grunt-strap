@@ -175,20 +175,20 @@ module.exports = function(grunt) {
 
 		// configure the jade template file compilation
 		jade: {
-			debug: {
+			development: {
 				options: {
+					pretty: true,
+					debug: true
 					data: {
-						pretty: true,
-						debug: true
 					}
 				},
 				files: JADE_FILE_CFG
 			},
 
-			release: {
+			production: {
 				options: {
+					debug: false
 					data: {
-						debug: false
 					}
 				},
 				files: JADE_FILE_CFG
@@ -238,7 +238,7 @@ module.exports = function(grunt) {
 			jade: {
 				options: { livereload: false },
 				files: [WATCH_FILES_JADE],
-				tasks: ['jade']
+				tasks: ['jade:development']
 			}
 		},
 
@@ -286,7 +286,7 @@ module.exports = function(grunt) {
 			'Compiles all of the assets and copies them' +
 			' to th build directory',
 			['clean:build', 'copy:build', 'stylesheets:' + mode, 'scripts:' + mode,
-				'copy:vendor', 'jade']
+				'copy:vendor', 'jade:' + mode]
 		);
 	};
 
